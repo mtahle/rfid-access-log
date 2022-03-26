@@ -25,6 +25,7 @@
 const int toneFreq = 300;
 const int toneDelay = 50;
 const int toneRepeat = 3;
+
 MFRC522 rfid(SS_PIN, RST_PIN); // Instance of the class
 
 //MFRC522::MIFARE_Key key;
@@ -84,8 +85,6 @@ void loop() {
   // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
   if ( ! rfid.PICC_IsNewCardPresent())
     return;
-
-
 
   // Verify if the NUID has been readed
   if ( ! rfid.PICC_ReadCardSerial())
